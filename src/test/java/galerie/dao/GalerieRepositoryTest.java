@@ -1,5 +1,6 @@
 package galerie.dao;
 
+import galerie.entity.Exposition;
 import galerie.entity.Galerie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -26,6 +27,15 @@ public class GalerieRepositoryTest {
         int combienDansLeJeuDeTest = 1; 
         long nombre = galerieDAO.count();
         assertEquals(combienDansLeJeuDeTest, nombre, "On doit trouver 1 galerie" );
+    }
+
+   @Test
+    @Sql("test-data.sql")
+    public void caAnnuelTest(){
+       float res = 1000001.F;
+       Galerie galerie = galerieDAO.getOne(1);
+
+       assertEquals(res,galerie.CAannuel(2021));
     }
 
 }
