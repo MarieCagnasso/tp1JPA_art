@@ -29,8 +29,7 @@ public class PersonneRepositoryTest {
     @Sql("test-data.sql") // On peut charger des donnnées spécifiques pour un test
     public void budgetArtTest() {
         float res = 1000001.F;
-        Personne client = personneRepository.getOne(1);
-
+        Personne client = personneRepository.getOne(2);
         assertEquals(res,client.budgetArt(2021));
     }
 

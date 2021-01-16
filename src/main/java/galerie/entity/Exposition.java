@@ -24,7 +24,7 @@ public class Exposition {
     @NonNull
     private int duree;
 
-    @ManyToMany
+   @ManyToMany
    @JoinTable(
             name = "exposition_Tableaux",
             joinColumns = @JoinColumn(name = "exposition_id"),

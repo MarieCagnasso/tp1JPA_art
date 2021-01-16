@@ -3,6 +3,7 @@ import javax.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 
 @Getter @Setter @NoArgsConstructor @RequiredArgsConstructor @ToString
@@ -30,6 +31,22 @@ public class Transaction {
     @NonNull
     @JoinColumn  (name = "oeuvre_id", unique = true)
     private  Tableau oeuvre;
+/*
+    @PrePersist
+    private void prePersistFunction(){
 
+        //log.info("PrePersist method called");
+
+        Optional<Transaction> oeuvreInExpo = lieuDeVente.getOeuvres().getOne(oeuvre.getId());
+
+        if (!oeuvreInExpo.isPresent()){
+
+        }
+
+        //if(StringUtils.isEmpty(type)){
+         //   type = "STANDARD_CUSTOMER";
+        //}
+    }
+*/
 
 }

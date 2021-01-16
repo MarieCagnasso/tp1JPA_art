@@ -39,15 +39,14 @@ public class TransactionRepositoryTest {
         Exposition exposition = expositionRepository.getOne(1);
         Tableau tableau = tableauRepository.getOne(1);
         Tableau tableau1 = tableauRepository.getOne(11);
-        Personne personne = personneRepository.getOne(1);
+        Personne personne = personneRepository.getOne(2);
 
         Transaction transaction1= new Transaction(today,1000000.f,exposition,personne,tableau1);
         transactionRepository.save(transaction1);
 
         Optional<Transaction> resultat1 = transactionRepository.findById(3);
         assertTrue(resultat1.isPresent(), "une personne et une expo peuvent avoir plusieurs transactions");
-        int res = tableau1.getVendu().getId();
-        assertEquals(3,res, "le tableau est vendu");
+        assertEquals(3,tableau1.getVendu().getId(), "le tableau est vendu");
 
         Transaction transaction3= new Transaction(today,0.f,exposition,personne,tableau);
 
